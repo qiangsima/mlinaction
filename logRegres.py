@@ -1,5 +1,6 @@
 from numpy import *
 
+
 def loadDataSet(filename):
     dataMat = []; labelMat = []
     fr = open(filename)
@@ -9,8 +10,10 @@ def loadDataSet(filename):
         labelMat.append(int(lineArr[2]))
     return dataMat,labelMat
 
+
 def sigmoid(inX):
     return 1.0 / (1+exp(-inX))
+
 
 def gradAscent(dataMatIn, classLabels):
     dataMat = mat(dataMatIn)
@@ -24,6 +27,7 @@ def gradAscent(dataMatIn, classLabels):
         error = labelMat - h
         weights = weights + alpha * dataMat.transpose() * error
     return weights
+
 
 def plotBestFit(dataMat, labelMat, weights):
     import matplotlib.pyplot as plt
@@ -47,6 +51,7 @@ def plotBestFit(dataMat, labelMat, weights):
     ax.plot(x,y)
     plt.xlabel('X1'); plt.ylabel('X2')
     plt.show()
+
 
 def stocGradAscent(dataMat, classLabels):
     m,n = shape(dataMat)

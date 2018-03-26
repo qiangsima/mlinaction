@@ -1,4 +1,11 @@
+# -*-coding:utf-8 -*-
+
+# svmMLia.py
+__author__ = 'sima'
+
+
 from numpy import *
+
 
 def loadDataSet(filename):
     dataMat = []; labelMat = []
@@ -9,11 +16,13 @@ def loadDataSet(filename):
         labelMat.append(float(lineArr[2]))
     return dataMat, labelMat
 
+
 def selectJrand(i,m):
     j = i
     while j == i:
         j = int(random.uniform(0,m))
     return j
+
 
 def clipAlpha(aj,H,L):
     if aj > H:
@@ -22,8 +31,9 @@ def clipAlpha(aj,H,L):
         aj = L
     return aj
 
+
 def smoSimple(dataMatIn, classLabels, C, toler, maxIter):
-    dataMatrix = mat(dataMat)
+    dataMatrix = mat(dataMatIn)
     labelMat = mat(classLabels).transpose()
     b = 0
     m,n = shape(dataMatrix)
