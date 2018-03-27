@@ -28,3 +28,21 @@ def hist():
     x = np.random.randn(1000)
     plt.hist(x,10)  # ·Ö³É10×é
     plt.show()
+
+
+def scatter(datMat, classLabels):
+    import numpy as np
+    pos = []
+    neg = []
+    for i in range(len(classLabels)):
+        if classLabels[i] > 0:
+            pos.append([datMat[i, 0], datMat[i, 1]])
+        else:
+            neg.append([datMat[i, 0], datMat[i, 1]])
+    pos = np.matrix(pos)
+    neg = np.matrix(neg)
+    print(pos[:, 0])
+    plt.scatter(np.array(pos[:, 0]), np.array(pos[:, 1]), c='r', marker='o', label='pos')
+    plt.scatter(np.array(neg[:, 0]), np.array(neg[:, 1]), c='g', marker='s', label='neg')
+    plt.legend(loc='best')
+    plt.show()
